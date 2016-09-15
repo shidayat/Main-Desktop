@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : clientContext.xml
+    Created on : October 2, 2013, 3:45 PM
+    Author     : Sarip
+    Description:
+        Purpose of the document follows.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+          http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context-3.0.xsd
+          http://www.springframework.org/schema/tx 
+          http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">  
+          
+<context:property-placeholder 
+    location="classpath:com/artitraining/mfauz/config/server.properties"/>
+
+<bean id="appService"
+    class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+     p:serviceUrl="http://${server.ip}:${server.port}/ConToWeb/AppService"
+     p:serviceInterface="com.artitraining.mfauz.service.AppService"/>
+    
+   
+<!--    <bean id="appService"
+    class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+    p:serviceUrl="http://localhost:8084/FauzWeb/AppService"
+    p:serviceInterface="com.artitraining.mfauz.service.AppService"
+    />
+    -->
+</beans>

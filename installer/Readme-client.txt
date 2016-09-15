@@ -1,0 +1,1 @@
+Aplikasi client. Jangan lupa setting server.properties agar IP dan port-nya sesuai dengan yang ada di serverContext.xml

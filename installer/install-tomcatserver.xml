@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : install-tomcatserver.xml
+    Created on : April 24, 2014, 5:46 PM
+    Author     : Sarip
+    Description:
+        Purpose of the document follows.
+-->
+
+<installation version="1.0">
+    <info>
+        <appname>FZ-TomcatServer</appname>
+        <appversion>1.0</appversion>
+        <appsubpath>FnZ-TomcatServer</appsubpath>
+        <authors>
+            <author name="S. Hidayat" email="hidayat.0099@gmail.com"/>
+        </authors>
+        <url>http://eshidayat.wordpress.com</url>
+    </info>
+    <guiprefs width="640" height="480" resizable="yes"/>
+    <locale>
+        <langpack iso3="eng"/>
+        <langpack iso3="fra"/>
+        <langpack iso3="spa"/>
+    </locale>
+    <resources>
+        <res id="LicencePanel.licence" src="installer/Licence.txt"/>
+        <res id="InfoPanel.info" src="installer/Readme-server.txt"/>
+    </resources>
+    <panels>
+        <panel classname="HelloPanel"/>
+        <panel classname="InfoPanel"/>
+        <panel classname="LicencePanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="FinishPanel"/>
+    </panels>
+    <packs>
+        <pack name="FZ App Server" required="yes">
+            <description>FDB - Tomcat Server</description>
+            <file src="installer/Licence.txt" targetdir="$INSTALL_PATH"/>
+            <file src="installer/Readme-server.txt" targetdir="$INSTALL_PATH"/>
+            <file src="dist/lib" targetdir="$INSTALL_PATH"/>
+            <file src="dist/Main-Desktop.jar" targetdir="$INSTALL_PATH"/>
+            <file src="installer/start-tomcat.bat"
+                targetdir="$INSTALL_PATH" condition="izpack.windowsinstall.7"/>
+            <file src="installer/start-server.sh"
+                targetdir="$INSTALL_PATH" condition="!izpack.windowsinstall"/>
+        </pack>
+    </packs>
+</installation>

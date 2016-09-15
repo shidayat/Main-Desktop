@@ -1,0 +1,1 @@
+Aplikasi server dan client lisensi Apache Licence 2.0
